@@ -1,7 +1,18 @@
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    axios.get('https://basic-ivr.herokuapp.com/api/v1/call/list-calls')
+      .then(response => {
+        console.log(response);
+      }).catch(err => {
+        console.error(err);
+      });
+  });
+
   return (
     <div className="App">
       <header className="App-header">
